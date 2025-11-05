@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @Bindable var authenticationManager : AuthenticationManager
+    @State var showingResetView = false
     var body: some View {
         NavigationStack{
             ZStack{
@@ -16,10 +17,22 @@ struct LoginView: View {
                     .ignoresSafeArea()
                 
                 VStack{
-                    SecureField("Enter your Password", text: $authenticationManager.password)
-                        .border(.black)
-                        .padding()
-                    
+                    VStack{
+                        SecureField("Enter your Password", text: $authenticationManager.password)
+                            .border(.black)
+                        
+                        HStack{
+                            Spacer()
+                            Text("Forgot your Password?")
+                                .underline()
+                                .onTapGesture {
+                                    // Show the sheet to reset the password
+                                    showingResetView = true
+                                }
+                        }
+                    }
+                    .padding()
+
                     Button{
                         Task{
                             // Login using email password
@@ -38,6 +51,9 @@ struct LoginView: View {
                     .disabled(!authenticationManager.isPasswordValid)
                 }
             }
+        }
+        .sheet(isPresented: $showingResetView) {
+            ResetPasswordView(authenticationManager: authenticationManager)
         }
     }
 }

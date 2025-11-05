@@ -285,4 +285,35 @@ class AuthenticationManager{
             print("Error: \(error.localizedDescription)")
         }
     }
+    
+    func resetPassword() async{
+        do{
+            try await Auth.auth().sendPasswordReset(withEmail: emailAddress)
+        } catch let error as NSError {
+            // Check what kind of error occurred
+            if let authError = AuthErrorCode(rawValue: error.code) {
+                switch authError {
+                case .userNotFound:
+                    // User doesn't exist in Firebase Auth
+                    // Check Firestore to provide more helpful context
+                    print("User Does not exist in Firebase Auth")
+                    
+                case .invalidEmail:
+                    print("Please enter a valid email address.")
+                    
+                case .networkError:
+                    print("Network error. Please check your internet connection and try again.")
+                    
+                case .tooManyRequests:
+                    print("Too many requests. Please wait a moment before trying again.")
+                    
+                default:
+                    print("An error occurred: \(error.localizedDescription)")
+                    
+                }
+            } else {
+                print("An unexpected error occurred. Please try again.")
+            }
+        }
+    }
 }
