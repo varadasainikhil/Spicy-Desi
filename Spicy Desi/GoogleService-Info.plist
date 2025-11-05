@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAmrle3cKJLr-8y5s3FJPRODx20d7vmhd4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>784088908183</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.varadasainikhil.Spicy-Desi</string>
+	<key>PROJECT_ID</key>
+	<string>spicy-desi</string>
+	<key>STORAGE_BUCKET</key>
+	<string>spicy-desi.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:784088908183:ios:ccd5f37bfefd938ae4c4d2</string>
+</dict>
+</plist>
